@@ -69,7 +69,7 @@ def main():
     with tf.Session(graph=graph) as sess:
         tf.global_variables_initializer().run()
         max_acc = 0.0
-        for i in range(100):
+        for i in range(500):
             training_batch = zip(range(0, len(trX), batch_size),
                                  range(batch_size, len(trX)+1, batch_size))
             for start, end in training_batch:
