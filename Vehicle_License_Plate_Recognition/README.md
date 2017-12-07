@@ -35,7 +35,7 @@
    <tr><td>贵</td><td>114</td><td>10</td><td>124</td><td></td><td>沪</td><td>104</td><td>10</td><td>114</td><td></td></tr>
    <tr><td>黑</td><td>41</td><td>10</td><td>51</td><td></td><td>吉</td><td>34</td><td>10</td><td>44</td><td></td></tr>
 </table>
-### [GoogLeNet_v3]() ###
+### [GoogLeNet_v3]()
 - #### 网络结构
     - 第一层为以relu为激活函数，filter=[3, 3, 128, 32], strides=[1, 1, 1, 1], padding='SAME'的普通卷积层。
     - 第二层为以relu为激活函数，filter=[3, 3, 32, 64], strides=[1, 1, 1, 1], padding='SAME'的普通卷积层。
@@ -75,16 +75,3 @@
             - 第三个分支以relu为激活函数filter=[1, 1, 480, 128], strides=[1, 1, 1, 1], padding='SAME'的卷积和为ksize=[1, 3, 3, 1], strides=[1, 2，2, 1], padding='VALID'的最大池化
     - 第八层为输出层，全连接输出层
 - #### 优化函数为Adam
-
-
-
-
-
-
-
-
-
-
-
-
-
