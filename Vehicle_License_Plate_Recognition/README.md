@@ -37,7 +37,6 @@
 </table>
 
 ### [GoogLeNet_v3]()
-
 - #### 网络结构
     - 第一层为以relu为激活函数，filter=[3, 3, 128, 32], strides=[1, 1, 1, 1], padding='SAME'的普通卷积层。
     - 第二层为以relu为激活函数，filter=[3, 3, 32, 64], strides=[1, 1, 1, 1], padding='SAME'的普通卷积层。
