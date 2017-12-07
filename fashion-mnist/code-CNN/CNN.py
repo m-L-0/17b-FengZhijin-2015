@@ -20,26 +20,23 @@ def get_weights_bases(shape):
     return weights, bases
 
 
-def output_inference(input_tensor, weights, biases):
-    layer = tf.matmul(input_tensor, weights) + biases
-    return layer
-
-
 def model(X, w, w2, w3, b3, w4, b4, w5, b5, p_keep_conv):
     l1a = tf.nn.relu(tf.nn.conv2d(X, w, strides=[1, 1, 1, 1], padding='SAME'))
     l1 = tf.nn.max_pool(l1a, ksize=[1, 3, 3, 1], strides=[1, 3, 3, 1], padding='SAME')
-    l1 = tf.nn.dropout(l1, p_keep_conv)
+    # l1 = tf.nn.dropout(l1, p_keep_conv)
     # shape = [?, 10, 10, 32]
 
     l2a = tf.nn.relu(tf.nn.conv2d(l1, w2, strides=[1, 1, 1, 1], padding='SAME'))
     l2 = tf.nn.max_pool(l2a, ksize=[1, 3, 3, 1], strides=[1, 3, 3, 1], padding='SAME')
     l2 = tf.reshape(l2, [-1, w3.get_shape().as_list()[0]])
-    l2 = tf.nn.dropout(l2, p_keep_conv)
+    # l2 = tf.nn.dropout(l2, p_keep_conv)
     # shape = [?, 4, 4, 64]
 
     l3 = tf.nn.relu(tf.matmul(l2, w3) + b3)
+    l3 = tf.nn.dropout(l3, p_keep_conv)
 
     l4 = tf.nn.relu(tf.matmul(l3, w4) + b4)
+    l4 = tf.nn.dropout(l4, p_keep_conv)
 
     layer = tf.matmul(l4, w5) + b5
 
