@@ -39,10 +39,16 @@ def _bytes_feature(value):
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 
+def _float_feature(value):
+    return tf.train.Feature(bytes_list=tf.train.FloatList(value=[value]))
+
+
 def convert_to():
-    cwd = '../车牌字符识别训练数据/'
-    writer_train = tf.python_io.TFRecordWriter('../data/tfrecords/train.tfrecords')
-    writer_validation = tf.python_io.TFRecordWriter('../data/tfrecords/validation.tfrecords')
+    cwd = '../测试图像集/'
+    # writer_train = tf.python_io.TFRecordWriter('../data/tfrecords/train.tfrecords')
+    # writer_validation = tf.python_io.TFRecordWriter('../data/tfrecords/validation.tfrecords')
+    writer_test = tf.python_io.TFRecordWriter('../data/tfrecords/test.tfrecords')
+    sum = 0
     for i in classes:
         if i == '字母':
             classes_1 = classes_zimu
@@ -53,9 +59,8 @@ def convert_to():
         for index in classes_1:
             class_path = cwd + i + '/' + classes_1[index] + '/'
             print("写入"+classes_1[index]+"数据")
-            sum = 0
-            sum_validation = 0
-            sum_train = 0
+            # sum_validation = 0
+            # sum_train = 0
             for img_name in os.listdir(class_path):
                 img_path = class_path + img_name
                 image = Image.open(img_path)
@@ -64,17 +69,20 @@ def convert_to():
                 example = tf.train.Example(features=tf.train.Features(feature={
                     'label': _int64_feature(int(index)),
                     'image_raw': _bytes_feature(image_raw)}))
-                if (sum < 10):
-                    sum_validation += 1
-                    writer_validation.write(example.SerializeToString())
-                elif (sum >= 10):
-                    sum_train += 1
-                    writer_train.write(example.SerializeToString())
+                # if (sum < 10):
+                #     sum_validation += 1
+                #     writer_validation.write(example.SerializeToString())
+                # elif (sum >= 10):
+                #     sum_train += 1
+                #     writer_train.write(example.SerializeToString())
+                writer_test.write(example.SerializeToString())
                 sum += 1
-            print("sum_validation = %d" % sum_validation)
-            print("sum_train = %d" % sum_train)
-    writer_train.close()
-    writer_validation.close()
+            # print("sum_validation = %d" % sum_validation)
+            # print("sum_train = %d" % sum_train)
+    # writer_train.close()
+    # writer_validation.close()
+    print("sum = %d" % sum)
+    writer_test.close()
 
 
 if __name__ == "__main__":

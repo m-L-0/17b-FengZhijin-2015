@@ -28,7 +28,7 @@ classes_shuzi = {56: '0', 57: '1', 58: '2', 59: '3', 60: '4', 61: '5', 62: '6',
 classes = ['字母', '汉字', '数字']
 size = 18449
 validation_size = 315
-test_size = 630
+test_size = 5428
 train_size = 17504
 
 
@@ -155,6 +155,7 @@ def get_test(batch=test_size):
     image = tf.decode_raw(features['image_raw'], tf.uint8)
     label = features['label']
     image = tf.reshape(image, [48, 24, 3])
+    # label = tf.reshape(label, [1])
     out_image, out_label = tf.train.shuffle_batch([image, label],
                                                   batch_size=batch,
                                                   capacity=batch * 3,
