@@ -34,6 +34,7 @@
    <tr><td>桂</td><td>248</td><td>10</td><td>258</td><td>1.00</td><td>9</td><td>462</td><td>10</td><td>472</td><td>0.99</td></tr>
    <tr><td>贵</td><td>114</td><td>10</td><td>124</td><td>1.00</td><td>沪</td><td>104</td><td>10</td><td>114</td><td>0.88</td></tr>
    <tr><td>黑</td><td>41</td><td>10</td><td>51</td><td>0.75</td><td>吉</td><td>34</td><td>10</td><td>44</td><td>0.92</td></tr>
+   <tr><td>总的正确率</td><td>0.981667</td></tr>
 </table>
 
 ### [GoogLeNet_v3](https://github.com/m-L-0/17b-FengZhijin-2015/tree/master/Vehicle_License_Plate_Recognition/code)
