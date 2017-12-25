@@ -8,7 +8,7 @@
 ![比例图](比例图.png)
 
 
-### [CNN模型]()
+### [CNN模型](https://github.com/m-L-0/17b-FengZhijin-2015/blob/master/CaptchaRecognition/code/CNN.py)
 - #### 网络结构
     - 第一层为以relu为激活函数的卷积与平均池化，padding='SAME'。
     - 第二层为以relu为激活函数的卷积与平均池化，padding='SAME'。
