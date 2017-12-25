@@ -74,7 +74,7 @@ def convert_to():
                 test_few = test_size // 4000
                 writer_test = tf.python_io.TFRecordWriter(tf_file+'test_'+str(test_few)+'.tfrecords')
             writer_test.write(example.SerializeToString())
-        
+
     print("num = %d" % num)
     print(sizes)
     writer_train.close()
